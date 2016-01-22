@@ -1,6 +1,6 @@
 ## Introduction
 
-The **WebService** projet is a school project in the scope of the client-server class. The aim is to develop some services for IOT management in NodeJS using MongoDB for the database.
+The **WebService** project is a school project in the scope of the client-server class. The aim is to develop some services for IOT management in NodeJS using MongoDB for the database.
 On the webpage, you can create an account, add some devices representing the connected object, create some groups specific to a user to add devices into it.
 Devices and groups can aso be activated or desactivated.
 
