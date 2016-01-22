@@ -1,0 +1,17 @@
+<section id="page-header">
+  <div class="container">
+    <div class="device">
+      <h1 class="page-title">All Devices</h1>
+    </div>
+    <hr>
+      <a href="/device/create" class="btn btn-info">Add a Device</a>
+  </div>
+</section>
+<div id="main-content" class="container">
+
+  <section class="content items portfolio">
+    {{#each devices as |device|}}
+        <a href="/device/view/{{device.deviceUID}}" class="btn btn-primary">{{device.deviceName}} - UID: {{device.deviceUID}}</a>
+    {{/each}}
+  </section>
+</div>

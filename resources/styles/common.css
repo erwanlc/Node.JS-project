@@ -1,0 +1,45 @@
+.twitter-title {
+  color: #ddd;
+}
+
+#navbar-id.navbar-fixed {
+  position: fixed;
+  top: 0;
+  height: 50px;
+}
+
+#navbar-id.navbar-fixed li > a {
+  height: 50px;
+  line-height: 50px;
+}
+
+#navbar-id {
+  transition: height 0.2s;
+}
+
+#navbar-id li > a {
+  transition: line-height 0.2s;
+}
+
+#top-login {
+  background: #b0b0b0;
+  padding: 5px 0;
+  border-bottom: 1px solid #b0b0b0;
+}
+
+#top-login input {
+  background: #ddd;
+}
+
+.margin-right-5 {
+  margin-right: 5px;
+}
+
+.grey-list {
+  color: #999;
+}
+
+#page-header{
+    background: #9d9d9d;
+    border-color: #b0b0b0;
+}

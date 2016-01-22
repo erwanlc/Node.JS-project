@@ -1,0 +1,25 @@
+<div id="top-login">
+  <div class="container">
+    {{#if user}}
+      <div class="row pull-right">
+        <span class="margin-right-5">Welcome, <a href="/user/account">{{user.email}}</a></span>
+        <span class="btn btn-default">Log out</span>
+      </div>
+    {{ else }}
+      <div class="pull-right">
+        <form class="form-inline form-login">
+          <div class="form-device">
+            <label class="sr-only" for="login-mail">Email address</label>
+            <input type="email" class="form-control" id="login-mail" placeholder="Email">
+          </div>
+          <div class="form-device">
+            <label class="sr-only" for="login-password">Password</label>
+            <input type="password" class="form-control" id="login-password" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default">Log in</button>
+          <a href="/register" class="btn btn-default">Register</a>
+        </form>
+      </div>
+    {{/if}}
+  </div>
+</div>

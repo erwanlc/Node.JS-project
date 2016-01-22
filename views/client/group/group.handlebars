@@ -1,0 +1,88 @@
+<div id="main-content" class="container">
+    <h2>{{group.groupName}}</h2>
+    {{#if group.active}}
+        <h4>Group Activated</h4>
+    {{else}}
+        <h4>Group Deactivated</h4>
+    {{/if}}
+    <h5>
+        {{#if isOwner}}
+            <a href="/group/{{group._id}}/remove"><i class="fa fa-ban"></i> Remove Group</a>
+        {{/if}}
+        <a href="#" id="desactivateGroup" data-group-id="{{group._id}}"><i class="fa fa-sign-out grey-list"></i> Desactivate Group</a>
+        <a href="#" id="activateGroup" data-group-id="{{group._id}}"><i class="fa fa-sign-in"></i> Activate Group</a>
+    </h5>
+    <div class="row">
+        <div class="col-md-4"><h4>Group information</h4>
+
+            <form class="form-horizontal form-modify-group">
+                <div class="form-device">
+                    <label for="groupName-group" class="col-sm-2 control-label">Actual Group Name</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="groupName-group" value="{{group.groupName}}" readonly>
+                    </div>
+                </div>
+                <div class="form-device">
+                    <label for="groupName-group" class="col-sm-2 control-label">New Group Name</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="groupNameModify-group" value="{{group.groupName}}">
+                    </div>
+                </div>
+                <div class="form-device">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Confirm changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6"><h3>Owner</h3></div>
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                {{#each group.owners as |owner|}}
+                    <tr>
+                        <td>
+                            {{owner.email}}
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-6"><h3>Devices</h3></div>
+            <div class="col-md-6 text-right menu-add">
+                {{#if isOwner}}
+                    <a href="/group/{{group._id}}/add-device"><i class="fa fa-plus"></i> Add a device</a>
+                {{/if}}
+            </div>
+            {{#if group.devices}}
+            <table class="table table-striped">
+                <tbody>
+                {{#each group.devices as |device|}}
+                    <tr>
+                        <td>
+                            {{device.deviceName}} - UID: {{device.deviceUID}}
+                              <span class="pull-right"><a href="#" class="removeDeviceFromGroup"
+                                                          data-group-id="{{../group._id}}"
+                                                          data-device-id="{{device._id}}"><i class="fa fa-ban"></i>
+                                Remove</a></span>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            <div class="col-md-6 text-right menu-add">There is no device in this group.</div>
+            {{/if}}
+        </div>
+    </div>
+</div>

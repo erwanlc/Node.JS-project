@@ -1,0 +1,60 @@
+<div id="main-content" class="container">
+    <h2>{{device.deviceName}}</h2>
+    <h3>{{device.deviceUID}}</h3>
+    {{#if device.active}}
+        <h4>Device Activated</h4>
+    {{else}}
+        <h4>Device Deactivated</h4>
+    {{/if}}
+    <h5>
+        <a href="/device/{{device.deviceUID}}/remove"><i class="fa fa-ban"></i> Remove Device</a>
+        <a href="#" id="desactivateDevice" data-device-id="{{device._id}}"><i class="fa fa-sign-out grey-list"></i> Desactivate Device</a>
+        <a href="#" id="activateDevice" data-device-id="{{device._id}}"><i class="fa fa-sign-in"></i> Activate Device</a>
+    </h5>
+    <div class="row">
+        <div class="col-md-4"><h4>Device information</h4>
+
+            <form class="form-horizontal form-rename-device">
+                <div class="form-device">
+                    <label for="deviceName-device" class="col-sm-2 control-label">Device UID</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="deviceUID-device" value="{{device.deviceUID}}" readonly>
+                    </div>
+                </div>
+                <div class="form-device">
+                    <label for="deviceName-device" class="col-sm-2 control-label">Device Name</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="deviceName-device" value="{{device.deviceName}}">
+                    </div>
+                </div>
+                <div class="form-device">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Confirm changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <tbody>
+                {{#each device.members as |member|}}
+                    <tr>
+                        <td>
+                            {{member.email}}
+                            {{#if ../isOwner}}
+                              <span class="pull-right"><a href="#" class="removePlayerFromDevice"
+                                                          data-device-id="{{../../device._id}}"
+                                                          data-player-id="{{member._id}}"><i class="fa fa-ban"></i>
+                                Remove</a></span>
+                            {{/if}}
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

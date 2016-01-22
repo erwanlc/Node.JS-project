@@ -1,0 +1,10 @@
+<div id="main-content" class="container">
+    <h2>Remove {{device.deviceName}}</h2>
+    <h3>{{device.deviceUID}}</h3>
+
+    <h4>Are you sure you want to remove device "{{device.deviceName}} - {{device.deviceUID}}" ?</h4>
+    <br><br>
+    <a href="/device/view/{{device.deviceUID}}" class="btn btn-danger">Cancel</a>
+    <a href="#" id="removeDevice" data-device-id="{{device.deviceUID}}" class="btn btn-success">Remove !</a>
+
+</div>

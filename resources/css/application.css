@@ -1,0 +1,6 @@
+.fa-ban { color: #c0392b; }
+.fa-check { color: #27ae60; }
+.clear { clear: both; }
+.menu-add {
+    transform: translateY(115%);
+}
